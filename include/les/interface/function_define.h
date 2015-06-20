@@ -224,13 +224,16 @@ typedef struct{
 /*
  * 记录中断退出时被打断的任务的相关信息
  */
-/*typedef struct{
-    LES_Size args[22];
-}__LES_EventInterruptContext;*/
+typedef struct{
+    LES_Size args[21];
+}__LES_EventInterruptContext;
 
-#define LES_EventParamInt_22(eventId, contextAddress)   \
+#define LES_EventParamInt_21(eventId, taskId, contextAddress)   \
     __LES__EVENTLOGBEGIN                    \
-        LES_EventLogHandle(eventId, contextAddress, sizeof(LES_Size) * 22); \
+    	__LES_EventInterruptContext event;\
+    	event.args[0] = taskId;\
+    	memcpy(&event.args[1], contextAddress, sizeof(LES_Size) * 20);\
+        LES_EventLogHandle(eventId, &event, sizeof(LES_Size) * 21); \
     __LES__EVENTLOGEND
 
 

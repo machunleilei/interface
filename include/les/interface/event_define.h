@@ -93,6 +93,8 @@ extern "C"{
 
 #define LES_EVENT_INTERRUPTEXIT_CONTEXT LES_EVENT_INTERRUPTIDENT(2)
 
+#define LES_EVENT_INTERRUPTENTER_CONTEXT LES_EVENT_INTERRUPTIDENT(3)
+
 
 /*************************************************
  * 同步事件调度点事件
