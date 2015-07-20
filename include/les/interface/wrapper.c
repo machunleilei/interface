@@ -1,4 +1,8 @@
-#include <les/interface/wrapper.h>
+/* can not include the direction #include <les/interface/wrapper.h> */
+
+#include <types.h>
+#include <tasks.h>
+#include <status.h>
 
 /* 对信号量操作的封装 */
 ACoreOs_status_code LES_ACoreOs_semaphore_obtain(
